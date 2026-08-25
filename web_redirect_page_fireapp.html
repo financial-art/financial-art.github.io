@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Authorization Redirect</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem 0;
+        }
+        p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <h1>Authorization Successful</h1>
+        <p>Redirecting back to the app...</p>
+    </div>
+
+    <script>
+        // Get the full URL including query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const error = urlParams.get('error');
+
+        console.log('Redirect page loaded');
+        console.log('Code:', code);
+        console.log('Error:', error);
+
+        if (code) {
+            // Build the custom URL scheme with the authorization code
+            const appUrl = `fireapp://enablebanking/callback?code=${encodeURIComponent(code)}`;
+            console.log('Redirecting to:', appUrl);
+            
+            // Attempt to open the app
+            window.location.href = appUrl;
+            
+            // Fallback: show message after a delay
+            setTimeout(() => {
+                document.querySelector('.container').innerHTML = `
+                    <h1>Authorization Complete</h1>
+                    <p>If the app doesn't open automatically, please return to the app manually.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">Code: ${code.substring(0, 20)}...</p>
+                `;
+            }, 2000);
+        } else if (error) {
+            console.error('Authorization error:', error);
+            document.querySelector('.container').innerHTML = `
+                <h1>Authorization Failed</h1>
+                <p>Error: ${error}</p>
+                <p style="margin-top: 1rem;">Please return to the app and try again.</p>
+            `;
+        } else {
+            console.error('No code or error in URL');
+            document.querySelector('.container').innerHTML = `
+                <h1>Invalid Response</h1>
+                <p>No authorization code received.</p>
+                <p style="margin-top: 1rem;">Please return to the app and try again.</p>
+            `;
+        }
+    </script>
+</body>
+</html>
