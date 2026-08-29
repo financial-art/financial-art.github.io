@@ -188738,8 +188738,8 @@ A.bxe.prototype={
 $0(){return A.az(this.a,!1).bd(!0)},
 $S:0}
 A.bwG.prototype={
-$1(a){var s=null,r=A.h(A.c("Niet-opgeslagen wijzigingen","Nicht gespeicherte \xc4nderungen","Modifications non enregistr\xe9es"),s,s,s,s,s,s,s,s),q=A.h(A.c("Je hebt niet-opgeslagen wijzigingen. Weet je zeker dat je terug wilt gaan zonder op te slaan?","Du hast nicht gespeicherte \xc4nderungen. M\xf6chtest du wirklich zur\xfcckgehen und sie verwerfen?","Vous avez des modifications non enregistr\xe9es. \xcates-vous s\xfbr de vouloir revenir en arri\xe8re et les annuler ?"),s,s,s,s,s,s,s,s),p=A.bD(A.h(A.c("Annuleren","Abbrechen","Annuler"),s,s,s,s,s,s,s,s),s,s,s,new A.bwE(a),s,s),o=A.fJ(s,s,s,s,s,s,s,s,s,B.as,s,s,s,s,s,s,s,s,s,s,s)
-return A.dU(A.a([p,A.bD(A.h(A.c("Niet opslaan","Verwerfen","Ignorer"),s,s,s,s,s,s,s,s),s,s,s,new A.bwF(a),s,o)],t.p),s,s,q,s,s,r,s)},
+$1(a){var s=null,r=A.h(A.c("Niet-opgeslagen wijzigingen","Nicht gespeicherte \xc4nderungen","Modifications non enregistr\xe9es"),s,s,s,s,s,s,s,s),q=A.h(A.c("Je hebt niet-opgeslagen wijzigingen. Weet je zeker dat je terug wilt gaan zonder op te slaan?","Du hast nicht gespeicherte \xc4nderungen. M\xf6chtest du wirklich zur\xfcckgehen und sie verwerfen?","Vous avez des modifications non enregistr\xe9es. \xcates-vous s\xfbr de vouloir revenir en arri\xe8re et les annuler ?"),s,s,s,s,s,s,s,s),p=A.bD(A.h(A.c("Nee","Nein","Non"),s,s,s,s,s,s,s,s),s,s,s,new A.bwE(a),s,s),o=A.fJ(s,s,s,s,s,s,s,s,s,B.as,s,s,s,s,s,s,s,s,s,s,s)
+return A.dU(A.a([p,A.bD(A.h(A.c("Ja","Ja","Oui"),s,s,s,s,s,s,s,s),s,s,s,new A.bwF(a),s,o)],t.p),s,s,q,s,s,r,s)},
 $S:17}
 A.bwE.prototype={
 $0(){return A.az(this.a,!1).bd(!1)},
@@ -196130,8 +196130,8 @@ s=s==null?null:J.ab(s)
 return s==null?"always":s},
 $S:70}
 A.bRa.prototype={
-$1(a){var s=null,r=A.h(A.c("Wijzigingen niet opslaan?","\xc4nderungen verwerfen?","Ignorer les modifications ?"),s,s,s,s,s,s,s,s),q=A.h(A.c("Je hebt onopgeslagen wijzigingen. Weet je zeker dat je wilt doorgaan zonder op te slaan?","Du hast nicht gespeicherte \xc4nderungen. M\xf6chtest du diese wirklich verwerfen?","Vous avez des modifications non enregistr\xe9es. \xcates-vous s\xfbr de vouloir les annuler ?"),s,s,s,s,s,s,s,s),p=A.bD(A.h(A.c("Annuleren","Abbrechen","Annuler"),s,s,s,s,s,s,s,s),s,s,s,new A.bR8(a),s,s),o=A.fJ(s,s,s,s,s,s,s,s,s,B.as,s,s,s,s,s,s,s,s,s,s,s)
-return A.dU(A.a([p,A.bD(A.h(A.c("Niet opslaan","Verwerfen","Ignorer"),s,s,s,s,s,s,s,s),s,s,s,new A.bR9(a),s,o)],t.p),s,s,q,s,s,r,s)},
+$1(a){var s=null,r=A.h(A.c("Wijzigingen niet opslaan?","\xc4nderungen verwerfen?","Ignorer les modifications ?"),s,s,s,s,s,s,s,s),q=A.h(A.c("Je hebt onopgeslagen wijzigingen. Weet je zeker dat je wilt doorgaan zonder op te slaan?","Du hast nicht gespeicherte \xc4nderungen. M\xf6chtest du diese wirklich verwerfen?","Vous avez des modifications non enregistr\xe9es. \xcates-vous s\xfbr de vouloir les annuler ?"),s,s,s,s,s,s,s,s),p=A.bD(A.h(A.c("Nee","Nein","Non"),s,s,s,s,s,s,s,s),s,s,s,new A.bR8(a),s,s),o=A.fJ(s,s,s,s,s,s,s,s,s,B.as,s,s,s,s,s,s,s,s,s,s,s)
+return A.dU(A.a([p,A.bD(A.h(A.c("Ja","Ja","Oui"),s,s,s,s,s,s,s,s),s,s,s,new A.bR9(a),s,o)],t.p),s,s,q,s,s,r,s)},
 $S:17}
 A.bR8.prototype={
 $0(){return A.az(this.a,!1).bd(!1)},
