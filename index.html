@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fi.Art | Financial Awareness &amp; Retirement Technology</title>
+  <meta name="description" content="Fi.Art is a local-first personal finance app: bank sync, smart categorisation, trip expense tracking and FIRE projections, all on your own device.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="assets/Icon-512.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ========================================================== app bar -->
+<header class="appbar">
+  <div class="wrap appbar__inner">
+    <a class="brand" href="#top">
+      <img src="assets/Icon-512.png" alt="Fi.Art logo">
+      Fi.Art
+    </a>
+    <nav>
+      <a href="#transactions">Transactions</a>
+      <a href="#travel">Travel</a>
+      <a href="#insight">Insight</a>
+      <a href="#fire">FIRE</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#platforms">Platforms</a>
+      <a class="btn btn--filled btn--small" href="demo/index.html">Try the demo</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================== hero -->
+<section class="hero" id="top">
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <div class="hero__lockup">
+        <img class="hero__logo" src="assets/Icon-512.png" alt="Fi.Art app icon"
+             width="512" height="512">
+        <div class="hero__lockup-text">
+          <span class="hero__wordmark">Fi.Art</span>
+          <span class="eyebrow"><span><b>Fi</b>nancial</span> <span><b>A</b>wareness</span> &amp; <span><b>R</b>etirement</span> <span><b>T</b>echnology</span></span>
+        </div>
+      </div>
+      <h1>Your whole financial picture.<br>On your own device.</h1>
+      <p class="lede">
+        Fi.Art is a comprehensive personal finance application built for people who want full control over
+        their financial data, without sacrificing power or privacy, and without handing their entire financial history
+        to a cloud platform. From automated bank synchronisation and intelligent transaction categorisation to
+        long-term FIRE projections and trip expense tracking, Fi.Art brings together every tool you need to
+        understand, manage, and plan your financial independence, entirely on your own device.
+      </p>
+      <p class="lede">
+        Use Fi.Art in the way that suits you best: connect supported bank accounts, import statements manually,
+        record cash expenses yourself or combine all three approaches. Every major module can be enabled,
+        disabled and configured independently.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--filled" href="demo/index.html">Open the live demo →</a>
+        <a class="btn btn--outlined" href="#transactions">Explore the features</a>
+      </div>
+      <p class="hero__note">The demo runs in your browser on fictional data. Nothing you do there leaves this page.</p>
+    </div>
+
+    <!-- A phone capture from the demo, so the first screen already shows the
+         real product instead of only prose. -->
+    <figure class="hero__shot">
+      <img src="assets/screenshots/mobile-transactions.png" width="1169" height="2392"
+           alt="Fi.Art transaction list on a phone, with one transaction expanded"
+           loading="eager" fetchpriority="high" decoding="async">
+      <figcaption>The transaction ledger on a phone, straight from the live demo.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="pills">
+    <!-- Stroked line glyphs (lock, bank, map, chart, target, cloud-off) in the
+         same visual language as the app's Material Symbols icon set. -->
+    <div class="pill">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+      Local-first, no cloud account
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 9.5v10h14v-10"/><path d="M9.5 19.5v-6h5v6"/></svg>
+      PSD2 open banking &amp; CSV import
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4z"/><path d="M9 4v13"/><path d="M15 6.5v13"/></svg>
+      Trips with shared expense settlements
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V4.5"/><path d="M4 19.5h16"/><path d="M8 19.5v-6"/><path d="M12.5 19.5V8"/><path d="M17 19.5v-9"/></svg>
+      Charts, budgets &amp; Sankey flows
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 4V2"/><path d="M12 22v-2"/><path d="M4 12H2"/><path d="M22 12h-2"/></svg>
+      FIRE projections from your own data
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 18.5H7a4.5 4.5 0 0 1-.7-8.95A5.5 5.5 0 0 1 16.2 8.6"/><path d="M4 4l16 16"/></svg>
+      No cloud and no server needed
+    </div>
+  </div>
+</div>
+
+<!-- ====================================================== transactions -->
+<section class="block" id="transactions">
+  <div class="wrap">
+    <div class="block__head">
+      <h2>Transactions, your way</h2>
+      <p>Bring transactions in however you like, then organise them exactly as your life actually works.</p>
+    </div>
+
+    <h3 class="sub">Bring transactions in your preferred way</h3>
+    <ul class="grid">
+      <li class="card"><span class="card__title">Open banking</span><span class="card__text">Connect eligible European bank accounts by bringing your own authentication key to enable PSD2 open banking.</span></li>
+      <li class="card"><span class="card__title">CSV import</span><span class="card__text">Import transactions from a CSV statement exported from your own bank.</span></li>
+      <li class="card"><span class="card__title">Manual entry</span><span class="card__text">Create transactions yourself, including cash payments or transactions recorded only for travel.</span></li>
+      <li class="card"><span class="card__title">Apple Wallet</span><span class="card__text">Integrate iPhone Wallet transactions directly into Fi.Art.</span></li>
+      <li class="card"><span class="card__title">Balances included</span><span class="card__text">Import account balances together with transaction history.</span></li>
+    </ul>
+    <p class="fineprint">
+      Bank connections are read-only account-information connections. Neither Fi.Art connections nor your
+      open banking authentication has permission to initiate payments.
+    </p>
+
+    <h3 class="sub">Faster, more consistent categorization</h3>
+    <div class="prose">
+      <p>
+        Fi.Art learns from your own categorization history. When a new transaction arrives from a familiar
+        counterparty, the app proposes the categories you used before and can prefill the related information.
+        Your most frequently used categories are always one tap away as quick suggestions.
+      </p>
+      <p>
+        During first setup, or right after connecting a new account, transactions can be grouped by counterparty
+        so that many entries from the same vendor are assigned in a single operation. Bulk edits are available for
+        selected transaction fields, turning a daunting backlog into a short one-time task.
+      </p>
+    </div>
+
+    <h3 class="sub">Manual transactions, shortcuts and placeholders</h3>
+    <ul class="grid">
+      <li class="card"><span class="card__title">Cash tracking</span><span class="card__text">Record cash-paid transactions manually, so the money you spend outside your bank account is never invisible.</span></li>
+      <li class="card"><span class="card__title">Shortcuts</span><span class="card__text">Save common transaction templates for recurring or frequently entered items and add them in seconds.</span></li>
+      <li class="card"><span class="card__title">Placeholders</span><span class="card__text">Add a placeholder transaction with a description and other context, preparing Fi.Art for when the actual bank transaction arrives. Match a later bank-fetched transaction to this placeholder and merge the information, avoiding duplicate records.</span></li>
+      <li class="card"><span class="card__title">Employer stock</span><span class="card__text">Optionally register employer stock events such as ESPP purchases and RSU vesting as income-related entries, with dedicated stock purchase analysis where enabled.</span></li>
+    </ul>
+    <!-- Visual break: the transaction ledger on both layouts. -->
+    <div class="showcase">
+      <figure class="showcase__wide">
+        <img src="assets/screenshots/desktop-transactions.png" width="1214" height="844"
+             alt="Transaction list with an expanded transaction detail pane" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>One ledger for every account</strong>
+          Category suggestions, splits and an inline detail pane on the desktop layout.
+        </figcaption>
+      </figure>
+      <figure class="showcase__phone">
+        <img src="assets/screenshots/mobile-transactions.png" width="1169" height="2392"
+             alt="Transaction list on a phone with one transaction expanded" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Same ledger on a phone</strong>
+          Tap a row to categorise, split or edit it.
+        </figcaption>
+      </figure>
+    </div>
+    <h3 class="sub">Separate payment date from consumption date</h3>
+    <div class="prose">
+      <p>
+        A transaction can record both when it was actually paid via your bank account and when the purchase is
+        'consumed'. That keeps your spending honest for a concert or airline ticket bought today for an event
+        months from now, as well as for a refund received today on an expense paid in the past.
+      </p>
+    </div>
+
+    <h3 class="sub">Split, tag and link transactions</h3>
+    <ul class="grid">
+      <li class="card"><span class="card__title">Splitting</span><span class="card__text">Split a single payment into multiple classified parts, such as shoes, a television and a backpack bought in one online purchase with platforms like Amazon where you could purchase items spanning multiple categories with one single payment.</span></li>
+      <li class="card"><span class="card__title">Tagging</span><span class="card__text">Add custom tags for follow-up work, reporting and filtering.</span></li>
+      <li class="card"><span class="card__title">Linking</span><span class="card__text">Link related transactions into a named group, such as a medical payment and its insurance refund, and follow the full story instead of two unrelated lines.</span></li>
+    </ul>
+    <!-- Visual break: a linked group of two transactions in the ledger. -->
+    <div class="showcase showcase--flip">
+      <figure class="showcase__wide">
+        <img src="assets/screenshots/desktop-linked.png" width="1214" height="844"
+             alt="Transaction ledger showing a named link group of two related transactions with a net total" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Multiple transactions, one story</strong>
+          A named link group keeps a payment and its repayment together.
+        </figcaption>
+      </figure>
+      <figure class="showcase__phone">
+        <img src="assets/screenshots/mobile-linked.png" width="1170" height="2396"
+             alt="Compact transaction list on a phone, showing counterparty, description and amount per row" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Tags for easy identification</strong>
+          Set tags by editing a transaction to use in follow ups or reporting.
+        </figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub">Categories that adapt to your life</h3>
+    <div class="prose">
+      <p>
+        A sensible default category structure is provided out of the box, covering the most common personal
+        finance needs. From there it is yours: create parent categories and subcategories, change icons and
+        colours, archive what you no longer use and configure income, expense, travel and one-time behaviour
+        to match your own system.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ travel -->
+<section class="block" id="travel">
+  <div class="wrap">
+    <div class="block__head">
+      <h2>Trips and travel</h2>
+      <p>
+        Fi.Art includes a dedicated travel workspace that turns scattered holiday transactions into a complete
+        trip record, instead of just seeing them as a filter in between all other transactions.
+      </p>
+    </div>
+
+    <h3 class="sub">One overview for every trip</h3>
+    <ul class="grid">
+      <li class="card"><span class="card__title">Trip ledger</span><span class="card__text">A dedicated list of travel transactions.</span></li>
+      <li class="card"><span class="card__title">Category breakdown</span><span class="card__text">Category-level spending breakdowns.</span></li>
+      <li class="card"><span class="card__title">Detail view</span><span class="card__text">Individual transaction details.</span></li>
+      <li class="card"><span class="card__title">Country split</span><span class="card__text">Spending by country for multi-country trips.</span></li>
+      <li class="card"><span class="card__title">Notes</span><span class="card__text">Optional notes or a trip description.</span></li>
+      <li class="card"><span class="card__title">Automatic dates</span><span class="card__text">Start and end dates calculated from the recorded expenses.</span></li>
+      <li class="card"><span class="card__title">Custom dates</span><span class="card__text">Your own start and end dates when the automatically calculated range is not the right representation.</span></li>
+    </ul>
+
+    <h3 class="sub">Shared trip expenses and settlements</h3>
+    <div class="prose">
+      <p>
+        Record the people travelling with you and specify how each shared expense should be divided. Fi.Art
+        supports equal shares, exact amounts, percentages, share counts and settlement entries. The trip view
+        keeps track of:
+      </p>
+    </div>
+    <ul class="grid">
+      <li class="card"><span class="card__title">Total cost</span><span class="card__text">The full cost of the trip.</span></li>
+      <li class="card"><span class="card__title">Your share</span><span class="card__text">Your personal share of each expense.</span></li>
+      <li class="card"><span class="card__title">Prepayments</span><span class="card__text">Amounts paid in advance by each participant.</span></li>
+      <li class="card"><span class="card__title">Settled</span><span class="card__text">Settlements already completed.</span></li>
+      <li class="card"><span class="card__title">Outstanding</span><span class="card__text">Remaining amounts owed between participants.</span></li>
+      <li class="card"><span class="card__title">Settlement plan</span><span class="card__text">A proposed plan that balances the trip with as few payments as possible.</span></li>
+    </ul>
+    <p class="fineprint">
+      Trip overviews and detailed expense tables can be shared with your fellow travellers, including participant
+      totals, outstanding balances and the underlying expense breakdown. All of that without registering their
+      email address and without requiring them to create an account or run the app themselves.
+    </p>
+    <!-- Visual break: the trip overview, two half captures of the shared expense
+         screens and the interactive world map. The phone column is a .splitshot:
+         two crops from two different screens, separated by plain whitespace. -->
+    <div class="showcase showcase--trio">
+      <figure class="showcase__wide">
+        <img src="assets/screenshots/desktop-trips.png" width="683" height="845"
+             alt="Trip overview with visited country flags and per-trip cost bars" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Every trip side by side</strong>
+          Trip totals, your own share and a cost breakdown per trip.
+        </figcaption>
+      </figure>
+      <figure class="showcase__phone showcase__phone--split">
+        <div class="splitshot">
+          <img src="assets/screenshots/mobile-trips-sharedproposed.png" width="1170" height="1296"
+               alt="Proposed settlement plan for a shared trip on a phone" loading="lazy" decoding="async">
+          <img src="assets/screenshots/mobile-trips-sharedtransactionsettings.png" width="1170" height="1780"
+               alt="Shared expense settings for a single trip transaction on a phone" loading="lazy" decoding="async">
+        </div>
+        <figcaption>
+          <strong>Shared expenses on the road</strong>
+          Two separate details: the proposed settlement plan and the sharing settings
+          of a single trip expense.
+        </figcaption>
+      </figure>
+      <figure class="showcase__wide">
+        <img src="assets/screenshots/desktop-trips-worldmap.png" width="1159" height="844"
+             alt="Interactive world map with visited countries highlighted and travel statistics" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Your travel history on one map</strong>
+          Select a visited country to reveal its travel statistics and related trips.
+        </figcaption>
+      </figure>
+    </div>
+    <h3 class="sub">Countries, currencies and historical value</h3>
+    <ul class="grid">
+      <li class="card"><span class="card__title">Location aware</span><span class="card__text">Assign a country and currency to travel transactions.</span></li>
+      <li class="card"><span class="card__title">Currency conversion</span><span class="card__text">Convert foreign-currency amounts into your home currency using stored historical or current rates.</span></li>
+      <li class="card"><span class="card__title">Real cost</span><span class="card__text">Include configurable percentage and fixed bank costs so the tracked amount reflects the real amount paid.</span></li>
+      <li class="card"><span class="card__title">Then or now</span><span class="card__text">View a trip using the original amount paid or an inflation-adjusted amount in today's value.</span></li>
+      <li class="card"><span class="card__title">Local inflation</span><span class="card__text">Keep country-specific inflation in account to evaluate historical trip costs.</span></li>
+    </ul>
+
+    <h3 class="sub">Explore your travel history</h3>
+    <div class="prose">
+      <p>
+        The interactive world map highlights every country you have visited across your trips. Select a country
+        and Fi.Art reveals the related travel statistics and the trips associated with it.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================== insight -->
+<section class="block" id="insight">
+  <div class="wrap">
+    <div class="block__head">
+      <h2>Charts and financial insight</h2>
+      <p>Fi.Art provides several views for exploring financial data across a selected period.</p>
+    </div>
+    <ul class="grid">
+      <li class="card"><span class="card__title">Trends</span><span class="card__text">Income and expense evolution over time.</span></li>
+      <li class="card"><span class="card__title">Category analysis</span><span class="card__text">Parent and subcategory detail side by side.</span></li>
+      <li class="card"><span class="card__title">Transaction table</span><span class="card__text">A unified table for detailed review.</span></li>
+      <li class="card"><span class="card__title">Budget analysis</span><span class="card__text">Income against expenses by month, week or year.</span></li>
+      <li class="card"><span class="card__title">Sankey flow</span><span class="card__text">A chart showing the flow from income into expense categories.</span></li>
+      <li class="card"><span class="card__title">Stock plan</span><span class="card__text">A stock purchase plan view for ESPP and RSU entries.</span></li>
+      <li class="card"><span class="card__title">Responsive by design</span><span class="card__text">Charts work on both narrow mobile screens and wide desktop windows, and a variety of filters can be combined to focus on a precise question.</span></li>
+    </ul>
+
+    <!-- Visual break: the Sankey flow and the phone trends view. -->
+    <div class="showcase showcase--flip">
+      <figure class="showcase__wide">
+        <img src="assets/screenshots/desktop-insight.png" width="2880" height="1800"
+             alt="Sankey diagram showing income flowing into spending categories" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Follow the money</strong>
+          A Sankey diagram tracing each income stream into the categories it actually pays for.
+        </figcaption>
+      </figure>
+      <figure class="showcase__phone">
+        <img src="assets/screenshots/mobile-insight.png" width="1170" height="2399"
+             alt="Monthly income and expense bar chart with a ranked category breakdown" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Trends in detail or at a glance</strong>
+          Period-based bars plus a detailed category breakdown per choosen period.
+        </figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================== fire -->
+<section class="block" id="fire">
+  <div class="wrap">
+    <div class="block__head">
+      <h2>FIRE planning based on your own data</h2>
+      <p>
+        Fi.Art's FIRE module connects long-term planning to the spending and income patterns already recorded in
+        the application, so your projection is built on your real life rather than a generic average.
+      </p>
+    </div>
+
+    <h3 class="sub">Personalised FIRE assumptions</h3>
+    <ul class="grid">
+      <li class="card"><span class="card__title">Spending profile</span><span class="card__text">Your historical expense and travel profile.</span></li>
+      <li class="card"><span class="card__title">Capital</span><span class="card__text">Current account balances and capital.</span></li>
+      <li class="card"><span class="card__title">Yield</span><span class="card__text">Projected investment yield percentages.</span></li>
+      <li class="card"><span class="card__title">Inflation</span><span class="card__text">Inflation projections and future purchasing-power adjustments.</span></li>
+      <li class="card"><span class="card__title">Income timeline</span><span class="card__text">Expected salaries, income streams and the ages at which they change or stop.</span></li>
+      <li class="card"><span class="card__title">Category rules</span><span class="card__text">Rules that increase, decrease, replace or stop a cost or income category over time.</span></li>
+      <li class="card"><span class="card__title">Pension</span><span class="card__text">Pension income and pension start ages.</span></li>
+      <li class="card"><span class="card__title">Family</span><span class="card__text">An optional partner's profile with a separate FIRE age, plus optional children and child-related costs.</span></li>
+      <li class="card"><span class="card__title">One-time events</span><span class="card__text">Future one-time expenses, such as education or major home maintenance. Future one-time income, such as an inheritance, property sale or pension-fund payment.</span></li>
+    </ul>
+
+    <h3 class="sub">Transparent results and scenarios</h3>
+    <div class="prose">
+      <p>
+        Adjust your desired FIRE age and watch the timeline rebuild year by year, showing exactly how income,
+        expenses, inflation, capital and future events shape the result. Depending on the assumptions, Fi.Art
+        can show:
+      </p>
+    </div>
+    <ul class="grid">
+      <li class="card"><span class="card__title">End capital</span><span class="card__text">The projected capital remaining at the end of the simulation.</span></li>
+      <li class="card"><span class="card__title">Break point</span><span class="card__text">The point in time at which capital would run out.</span></li>
+      <li class="card"><span class="card__title">Feasibility</span><span class="card__text">Whether the selected FIRE age is sustainable.</span></li>
+      <li class="card"><span class="card__title">Trade-offs</span><span class="card__text">The effect of working longer or changing the desired FIRE age.</span></li>
+      <li class="card"><span class="card__title">Suggestions</span><span class="card__text">Scenario changes, such as a different implementation year, lower recurring costs or a different one-time amount, to make a target more achievable.</span></li>
+    </ul>
+    <!-- Visual break: the projection table on both layouts. -->
+    <div class="showcase">
+      <figure class="showcase__wide">
+        <img src="assets/screenshots/desktop-fire.png" width="2880" height="1800"
+             alt="FIRE projection table showing yearly income, expenses and capital per age" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Year by year, not a single number</strong>
+          Capital, income and expenses per age, derived from your own transaction history.
+        </figcaption>
+      </figure>
+      <figure class="showcase__phone">
+        <img src="assets/screenshots/mobile-fire.png" width="780" height="1688"
+             alt="FIRE projection table on a phone, scrollable by column" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Optimized for mobile and desktop views</strong>
+          The full table, scrollable column by column.
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="fineprint">
+      The FIRE result is meant to be inspected rather than a single unexplained number. Every rule can be
+      reviewed and adjusted to see how it changes the outcome.
+    </p>
+  </div>
+</section>
+
+
+<!-- ======================================================== demo band -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <div class="demo__card">
+      <div class="demo__text">
+        <h2>Try before you configure</h2>
+        <p>
+          Fi.Art includes a complete demo database with realistic fictional data. Demo mode lets you explore
+          transactions, categories, trips, charts, FIRE projections, maps, settings and other local workflows
+          without entering a single detail of your own financial information. The demo database can be reset at
+          any time, so you can safely repeat the tour and test different screens.
+        </p>
+      </div>
+      <div class="demo__actions">
+        <a class="btn btn--filled" href="demo/index.html">Launch the demo →</a>
+        <a class="btn btn--tonal" href="demo/privacy_policy.html">Privacy policy</a>
+        <a class="btn btn--tonal" href="demo/terms_of_service.html">Terms of service</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================== settings and calculators -->
+<section class="block" id="settings">
+  <div class="wrap">
+    <div class="block__head">
+      <h2>Settings, configuration and calculators</h2>
+      <p>
+        Fi.Art is modular. Settings allow you to enable, disable or fine-tune every feature as desired, so the
+        app stays as simple or as complete as you want it.
+      </p>
+    </div>
+    <div class="prose">
+      <p>
+        The app also includes multilingual support, configurable home currency and country settings, account-level
+        currency-rate sources and bank-fee settings, saved filters and display preferences.
+      </p>
+    </div>
+    <!-- Visual break: the feature toggles in profile and settings. -->
+    <div class="showcase showcase--flip">
+      <figure class="showcase__wide">
+        <img src="assets/screenshots/desktop-settings.png" width="2880" height="1800"
+             alt="Profile and settings screen with feature toggles for suggestions, linking, placeholder matching, cash flow and wealth tracking" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Every module is optional</strong>
+          Turn features on or off and fine-tune their behaviour, so the app matches the way you work.
+        </figcaption>
+      </figure>
+      <figure class="showcase__phone">
+        <img src="assets/screenshots/mobile-settings.png" width="780" height="1688"
+             alt="Feature settings on a phone with individual toggles per module" loading="lazy" decoding="async">
+        <figcaption>
+          <strong>Configure to your needs</strong>
+          Settings are grouped per topic and reachable in a couple of taps.
+        </figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub">Built-in calculators</h3>
+    <ul class="grid">
+      <li class="card"><span class="card__title">Inflation calculator</span><span class="card__text">Estimate what an amount paid today or in the past would cost at another date for a selected country.</span></li>
+      <li class="card"><span class="card__title">Currency converter</span><span class="card__text">Convert between currencies using today's rate or a historical date.</span></li>
+    </ul>
+    <p class="fineprint">
+      The calculated values are there as a quick reference and never touch your underlying transaction records.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================== backup and privacy -->
+<section class="block" id="privacy">
+  <div class="wrap">
+    <div class="block__head">
+      <h2>Backup, export and portability</h2>
+      <p>Fi.Art keeps the working database on the device and gives you control over how data leaves it.</p>
+    </div>
+    <ul class="grid">
+      <li class="card"><span class="card__title">CSV export</span><span class="card__text">Export all transactions to CSV with configurable export options.</span></li>
+      <li class="card"><span class="card__title">Local backup</span><span class="card__text">Create a backup of the complete database or export the database to a destination you choose.</span></li>
+      <li class="card"><span class="card__title">Restore</span><span class="card__text">Restore a database backup on the same or another device.</span></li>
+      <li class="card"><span class="card__title">Your choice of protection</span><span class="card__text">Pick an encrypted database export for stronger protection, or an unencrypted export when portability and easy inspection matter more.</span></li>
+      <li class="card"><span class="card__title">Key recovery</span><span class="card__text">View and recover the database encryption key through an authenticated security flow when encryption is enabled.</span></li>
+    </ul>
+    <p class="fineprint">
+      Encrypted native database storage currently uses SQLCipher-based encryption on iOS, Android, Windows and MacOS.
+    </p>
+
+    <h3 class="sub">Local-first privacy and security</h3>
+    <div class="prose">
+      <p>Fi.Art is built around local ownership of personal financial data.</p>
+    </div>
+    <ul class="grid">
+      <li class="card"><span class="card__title">On your device</span><span class="card__text">The main database is stored locally on the device.</span></li>
+      <li class="card"><span class="card__title">No cloud account</span><span class="card__text">No Fi.Art cloud account, cloud database or mandatory sync server.</span></li>
+      <li class="card"><span class="card__title">No server, no cloud</span><span class="card__text">Accessing, storing, editing, analysing and reporting on your data happens entirely inside the app on your device, without a cloud service and without a local server. Fetching new bank transactions, exchange rates and inflation figures does use the internet, because that information comes from external sources.</span></li>
+      <li class="card"><span class="card__title">Network only when asked</span><span class="card__text">Bank imports require the selected banking provider and an internet connection. Current exchange rates and updated inflation data are retrieved from their configured external sources when requested, then cached locally.</span></li>
+      <li class="card"><span class="card__title">Secure credentials</span><span class="card__text">Bank credentials can be stored in the operating system's secure credential storage, with an explicit portability option for storing them in the database when required.</span></li>
+      <li class="card"><span class="card__title">Protected secrets</span><span class="card__text">Secret values such as encryption keys require re-authentication before they are revealed or copied, and copied secrets are cleared from the clipboard after a short period.</span></li>
+      <li class="card"><span class="card__title">Privacy modes</span><span class="card__text">Hide your amounts from the people around you with a single tap. Transaction lists, trip overviews and summary totals each have their own privacy mode: show everything, mask only the totals and your income, or mask every individual amount as well. Useful on a train, in an open office or while sharing your screen, because the app stays fully usable while the real numbers are replaced by asterisks. A profile-level override applies your choice to every screen at once and can be undone to bring back the individual per-screen settings.</span></li>
+      <li class="card"><span class="card__title">App lock</span><span class="card__text">An optional app lock can require device biometrics or the device passcode on launch and after returning from the background.</span></li>
+      <li class="card"><span class="card__title">Reviewed and tested</span><span class="card__text">The developer has performed security-focused source review and testing, including encryption migration handling, credential-storage tests and database round-trip tests.</span></li>
+    </ul>
+    <p class="fineprint">
+      Encryption and secure hardware-backed credential storage depend on the capabilities of the platform on
+      which the app is running.
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================================================= platforms -->
+<section class="block" id="platforms">
+  <div class="wrap">
+    <div class="block__head">
+      <h2>Available platforms</h2>
+      <p>The Flutter application targets:</p>
+    </div>
+    <ul class="grid">
+      <li class="card"><span class="card__title">iOS</span><span class="card__text">iPhone and iPad.</span></li>
+      <li class="card"><span class="card__title">Android</span><span class="card__text">Phones and tablets.</span></li>
+      <li class="card"><span class="card__title">macOS</span><span class="card__text">Native desktop app.</span></li>
+      <li class="card"><span class="card__title">Windows</span><span class="card__text">Native desktop app.</span></li>
+      <li class="card"><span class="card__title">Linux</span><span class="card__text">Native desktop app.</span></li>
+    </ul>
+    <div class="prose" style="margin-top: 16px;">
+      <p>
+        The project also contains a web build and an online demo build. Native platforms provide the broadest
+        security and file-system capabilities. Web builds use browser storage and therefore have different
+        encryption, credential-storage and file-export behaviour. To ensure the highest security, reliability and
+        privacy it is therefore not recommended to run Fi.Art as a browser based application, despite it being
+        fully functional as such as can be seen in the demo environment.
+      </p>
+      <p>
+        The responsive interface keeps the same core workflows across mobile and desktop layouts, while adapting
+        tables, charts, forms and navigation to the available screen size.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================== closing -->
+<section class="block" id="closing">
+  <div class="wrap">
+    <div class="block__head">
+      <h2>A finance app that follows your choices</h2>
+      <p>
+        Fi.Art is for people who want detailed financial records without being forced into a single data-import
+        method, budgeting philosophy or long-term planning model. Start with manual transactions, add CSV imports
+        later, connect a bank when convenient, build detailed trip records and use FIRE projections only when they
+        become useful to you.
+      </p>
+    </div>
+    <div class="hero__actions">
+      <a class="btn btn--filled" href="demo/index.html">Open the live demo →</a>
+      <a class="btn btn--outlined" href="#top">Back to the top</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ footer -->
+<footer class="site">
+  <div class="wrap">
+    <div class="links">
+      <a href="demo/index.html">Live demo</a>
+      <a href="demo/privacy_policy.html">Privacy policy</a>
+      <a href="demo/terms_of_service.html">Terms of service</a>
+    </div>
+    <p>Fi.Art, Financial Awareness &amp; Retirement Technology. Your financial data belongs to you, stays with you, and works for you.</p>
+  </div>
+</footer>
+
+<button class="totop" id="totop" type="button" aria-label="Back to top">↑</button>
+
+<script>
+  // Show the back-to-top button once the reader has scrolled past the hero.
+  (function () {
+    var btn = document.getElementById('totop');
+    function sync() {
+      btn.classList.toggle('show', window.scrollY > 600);
+    }
+    window.addEventListener('scroll', sync, { passive: true });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    sync();
+  })();
+
+  // ------------------------------------------------------------- screenshot lightbox
+  // Every screenshot on the page (hero capture, showcase bands and the split
+  // phone crops) opens full size in an overlay so details are readable.
+  // Click or Enter/Space opens it, Escape or a click on the backdrop closes it,
+  // the arrow keys and the side buttons walk through all screenshots in order.
+  // The overlay shows the image plus the same caption used inline, nothing else.
+  (function () {
+    var shots = Array.prototype.slice.call(
+      document.querySelectorAll('.hero__shot img, .showcase img')
+    );
+    if (!shots.length) return;
+
+    var index = 0;
+    var lastFocused = null;
+
+    // --- overlay markup, created once and reused for every screenshot --------
+    var overlay = document.createElement('div');
+    overlay.className = 'lightbox';
+    overlay.id = 'lightbox';
+    overlay.hidden = true;
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Screenshot viewer');
+    overlay.innerHTML =
+      '<button class="lightbox__btn lightbox__btn--close" type="button" aria-label="Close screenshot">×</button>' +
+      '<button class="lightbox__btn lightbox__btn--prev" type="button" aria-label="Previous screenshot">‹</button>' +
+      '<button class="lightbox__btn lightbox__btn--next" type="button" aria-label="Next screenshot">›</button>' +
+      '<figure class="lightbox__figure">' +
+      '  <img class="lightbox__img" alt="">' +
+      '  <figcaption class="lightbox__caption"></figcaption>' +
+      '</figure>';
+    document.body.appendChild(overlay);
+
+    var img = overlay.querySelector('.lightbox__img');
+    var caption = overlay.querySelector('.lightbox__caption');
+    var closeBtn = overlay.querySelector('.lightbox__btn--close');
+    var prevBtn = overlay.querySelector('.lightbox__btn--prev');
+    var nextBtn = overlay.querySelector('.lightbox__btn--next');
+
+    // The caption of the owning <figure>, or the image's alt text as fallback
+    // (the split phone column shares one caption for two crops).
+    function captionFor(shot) {
+      var figure = shot.closest('figure');
+      var node = figure ? figure.querySelector('figcaption') : null;
+      if (node) return node.innerHTML;
+      return shot.alt ? shot.alt.replace(/[&<>]/g, '') : '';
+    }
+
+    function show(i) {
+      index = (i + shots.length) % shots.length;
+      var shot = shots[index];
+      img.src = shot.currentSrc || shot.src;
+      img.alt = shot.alt || '';
+      caption.innerHTML = captionFor(shot);
+      var multiple = shots.length > 1;
+      prevBtn.hidden = !multiple;
+      nextBtn.hidden = !multiple;
+    }
+
+    function open(i) {
+      lastFocused = document.activeElement;
+      show(i);
+      overlay.hidden = false;
+      document.body.classList.add('lightbox-locked');
+      // Next frame, so the opacity transition actually runs.
+      requestAnimationFrame(function () {
+        overlay.classList.add('lightbox--open');
+      });
+      closeBtn.focus();
+    }
+
+    function close() {
+      overlay.classList.remove('lightbox--open');
+      overlay.hidden = true;
+      document.body.classList.remove('lightbox-locked');
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus();
+      }
+    }
+
+    shots.forEach(function (shot, i) {
+      // Keyboard reachable: an <img> is not focusable by default.
+      shot.tabIndex = 0;
+      shot.setAttribute('role', 'button');
+      shot.setAttribute('aria-label', (shot.alt || 'Screenshot') + ' (click to enlarge)');
+      shot.addEventListener('click', function () { open(i); });
+      shot.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          open(i);
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', close);
+    prevBtn.addEventListener('click', function () { show(index - 1); });
+    nextBtn.addEventListener('click', function () { show(index + 1); });
+
+    // A click on the backdrop closes; a click on the image or a control does not.
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay || e.target.classList.contains('lightbox__figure')) {
+        close();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (overlay.hidden) return;
+      if (e.key === 'Escape') { close(); }
+      else if (e.key === 'ArrowLeft') { show(index - 1); }
+      else if (e.key === 'ArrowRight') { show(index + 1); }
+    });
+  })();
+
+</script>
+
+</body>
+</html>
+
