@@ -2732,6 +2732,10 @@ file_selector_platform_interface
 file_selector_web
 file_selector_windows
 flutter_plugin_android_lifecycle
+in_app_purchase
+in_app_purchase_android
+in_app_purchase_platform_interface
+in_app_purchase_storekit
 local_auth
 local_auth_android
 local_auth_darwin
