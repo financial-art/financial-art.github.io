@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Authorization - Redirecting...</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+        
+        .code-display {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .error {
+            color: #ff6b6b;
+        }
+        
+        .instructions {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .debug-info {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: left;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <h1>✓ Authorization Successful</h1>
+        <p>Redirecting you back to the app...</p>
+        <p id="status" style="font-size: 0.9rem; margin-top: 1rem;"></p>
+    </div>
+
+    <script>
+        (function() {
+            console.log('=== Enable Banking Redirect Page Loaded ===');
+            console.log('Current URL:', window.location.href);
+            console.log('User Agent:', navigator.userAgent);
+            
+            // Detect if running on macOS
+            const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+            const isMacOS = navigator.userAgent.indexOf('Macintosh') > -1;
+            
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            const state = urlParams.get('state');
+            const error = urlParams.get('error');
+            const errorDescription = urlParams.get('error_description');
+            
+            console.log('Parameters:', { code, state, error, errorDescription });
+            console.log('Platform:', { isMac, isMacOS });
+            
+            const container = document.querySelector('.container');
+            const statusElement = document.getElementById('status');
+            
+            // Handle error case
+            if (error) {
+                console.error('Authorization error:', error, errorDescription);
+                container.innerHTML = `
+                    <div class="success-icon error">✗</div>
+                    <h1 class="error">Authorization Failed</h1>
+                    <p>Error: ${error}</p>
+                    ${errorDescription ? `<p>${errorDescription}</p>` : ''}
+                    <div class="instructions">
+                        <p>Please close this page and try again from the app.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Handle no code case
+            if (!code) {
+                console.error('No authorization code received');
+                container.innerHTML = `
+                    <div class="success-icon error">✗</div>
+                    <h1 class="error">No Authorization Code</h1>
+                    <p>The authorization response did not include a code.</p>
+                    <div class="instructions">
+                        <p>Please close this page and try again from the app.</p>
+                    </div>
+                    <div class="debug-info">
+                        <strong>Debug Info:</strong><br>
+                        URL: ${window.location.href}
+                    </div>
+                `;
+                return;
+            }
+            
+            // Build the deep link URL
+            const deepLink = `fireapp://enablebanking/callback?code=${encodeURIComponent(code)}`;
+            console.log('Deep link URL:', deepLink);
+            
+            statusElement.textContent = 'Opening app...';
+            
+            // Try to open the app immediately
+            console.log('Attempting to open:', deepLink);
+            window.location.href = deepLink;
+            
+            // Also try alternative methods
+            setTimeout(() => {
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = deepLink;
+                document.body.appendChild(iframe);
+                console.log('Iframe redirect attempted');
+            }, 100);
+            
+            setTimeout(() => {
+                const link = document.createElement('a');
+                link.href = deepLink;
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                console.log('Link click attempted');
+            }, 200);
+            
+            // Show fallback message after delay
+            setTimeout(() => {
+                container.innerHTML = `
+                    <div class="success-icon">✓</div>
+                    <h1>Authorization Complete!</h1>
+                    <p>Authorization code received successfully.</p>
+                    <div class="instructions">
+                        <p><strong>If the app didn't open automatically:</strong></p>
+                        <p>Please return to the app manually and check for connected accounts.</p>
+                    </div>
+                    <div class="code-display">
+                        <strong>Authorization Code:</strong><br>
+                        ${code.substring(0, 30)}...
+                    </div>
+                    <div class="debug-info">
+                        <strong>Deep Link:</strong><br>
+                        ${deepLink}<br><br>
+                        <strong>If app doesn't open:</strong><br>
+                        1. Make sure the app is running<br>
+                        2. You may need to manually click this link:<br>
+                        <a href="${deepLink}" style="color: #88f; text-decoration: underline;">Open App</a>
+                    </div>
+                `;
+                console.log('Fallback UI displayed');
+            }, 2000);
+            
+            // Log visibility changes (helps debug if page is hidden)
+            document.addEventListener('visibilitychange', () => {
+                console.log('Page visibility:', document.hidden ? 'hidden' : 'visible');
+            });
+            
+            // Detect if navigation happened
+            window.addEventListener('blur', () => {
+                console.log('Window lost focus - likely redirected to app');
+            });
+            
+        })();
+    </script>
+</body>
+</html>
