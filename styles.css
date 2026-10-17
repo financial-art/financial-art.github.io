@@ -873,7 +873,8 @@ footer.site .links {
 
   /* Full-width, thumb-sized CTAs. */
   .hero__actions .btn,
-  #closing .hero__actions .btn {
+  #closing .hero__actions .btn,
+  #contact .hero__actions .btn {
     width: 100%;
     padding: 14px 22px;
   }
